@@ -46,7 +46,10 @@ for index, i in enumerate(itens):
                         else:
                             list.update({k:ocorrencias})
                 suporte = list.get(k, 0)/10
-                confiança = list.get(k, 0)/len(itens[i].keys())
+                if suporte> 0.1:
+                    confiança = list.get(k, 0)/len(itens[i].keys())
+                else:
+                    confiança = 0
                 atual = suportes.get(str(i)+"-"+str(k), "nulo")
                 if atual == "nulo" and suporte == 0.0:
                     suportes.update({str(i)+"-"+str(k): 0})
